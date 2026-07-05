@@ -37,4 +37,13 @@ for keyword in keywords:
             keyword_total_count += 1
             if item["sentiment"] == "positive":
                 keyword_in_positive_count += 1
+                
+# Marginal: P(keyword) - Probability that ANy review has the keyword
+    p_keyword = keyword_total_count / total_reviews
+
+    # Likelihood: P(keyword | positive) - Probability a positive review has the keyword
+    if positive_reviews > 0:
+        p_keyword_given_positive = keyword_in_positive_count / positive_reviews
+    else:
+        p_keyword_given_positive = 0
 
