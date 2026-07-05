@@ -94,3 +94,39 @@ for iteration in range(max_iterations):
             break
     previous_log_likelihood = log_likelihood
 
+   # === M-STEP (Maximization)- Update our guesses ===
+    # Calc total weight of people in each group
+    N1 = sum(weights1)
+    N2 = sum(weights2)
+
+    # Update pi (proportions)
+    pi1 = N1 / N
+    pi2 = N2 / N
+
+    # Update mu (means) -> Weighted average of heights
+    mu1 = sum(weights1[i] * heights[i] for i in range(N)) / N1
+    mu2 = sum(weights2[i] * heights[i] for i in range(N)) / N2
+
+    # Update variance -> Weighted average of squared distances from the mean
+    var1 = sum(weights1[i] * ((heights[i] - mu1) ** 2) for i in range(N)) / N1
+    var2 = sum(weights2[i] * ((heights[i] - mu2) ** 2) for i in range(N)) / N2
+
+# === Live Classification Demonstration ===
+print("\n" + "=" * 50)
+print("CLASSIFICATION TEST")
+print("=" * 50)
+
+# A random height to test
+test_height = 69.0
+
+# We use our fully optimized parameters to classify this new person
+p_child = pi1 * calculate_gaussian_prob(test_height, mu1, var1)
+p_pro = pi2 * calculate_gaussian_prob(test_height, mu2, var2)
+p_total = p_child + p_pro
+
+final_prob_child = p_child / p_total
+final_prob_pro = p_pro / p_total
+
+print(f"Test Height Evaluated: {test_height} inches")
+print(f"Probability it is a Child (Group 1): {final_prob_child * 100:.2f}%")
+print(f"Probability it is a Father (Group 2): {final_prob_pro * 100:.2f}%")
