@@ -30,9 +30,6 @@ We modeled a Parent and Child Heights dataset selection using an expectation-max
 - Negative: [terrible], [bad], [boring]
 - we choose to compute: P(Positive | keyword)
 
-### Result table
-...
-
 ### implementation
 - Implemented in plain Python (no ML libraries) using Bayes' Theorem:
   `P(Positive|keyword) = [P(keyword|Positive) * P(Positive)] / P(keyword)`
@@ -54,6 +51,11 @@ See: [manual calculations pdf](https://github.com/Linda5-umwali/Bayesian-Probabi
 ## Part 4: Gradient Descent(Code Implementation)
 We converted the manual code from part 3 into working python code, using SciPy to compute derivatives automatedly rather than by hand/ manual computation.
 
+## Running Part4
+
+1. Clone the repo ``` git clone https://github.com/Linda5-umwali/Bayesian-Probability-Gradient-descent.git ```
+2. Run ``` pip install -r requirements.txt ```
+3. Run ``` python gradient_descent.py ```
 
 ## Repository structure
 ```
@@ -73,9 +75,3 @@ project-root/
 └── notebook/
     └── full_walkthrough.ipynb
 ```
-
-## Running Part4
-
-1. Clone the repo ``` git clone https://github.com/Linda5-umwali/Bayesian-Probability-Gradient-descent.git ```
-2. Run ``` pip install -r requirements.txt ```
-3. Run ``` python gradient_descent.py ```
