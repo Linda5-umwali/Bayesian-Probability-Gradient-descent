@@ -94,3 +94,30 @@ print("-" * 50)
 print("FINAL PREDICTIONS (Using updated m and b):")
 print(f"Predicted Y:\n{final_pred}")
 print(f"Actual Y:\n{Y}")
+
+# 5. Matplotlib Visualizations
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+
+# Plot 1: Parameter Changes Over Iterations
+ax1.plot(m1_history, label='m1', marker='o', linestyle='-', color='blue')
+ax1.plot(m2_history, label='m2', marker='s', linestyle='-', color='cyan')
+ax1.plot(b1_history, label='b1', marker='^', linestyle='--', color='red')
+ax1.plot(b2_history, label='b2', marker='x', linestyle='--', color='orange')
+ax1.set_title("Changes in Parameters (m and b)")
+ax1.set_xlabel("Iteration")
+ax1.set_ylabel("Parameter Value")
+ax1.set_xticks(range(iterations + 1))
+ax1.legend()
+ax1.grid(True, alpha=0.3)
+
+# Plot 2: Error (Cost) Changes Over Iterations
+ax2.plot(cost_history, label='MSE Cost (J)', marker='o', color='purple', linewidth=2)
+ax2.set_title("Reduction in Error (Cost) Over Iterations")
+ax2.set_xlabel("Iteration")
+ax2.set_ylabel("Cost")
+ax2.set_xticks(range(iterations + 1))
+ax2.legend()
+ax2.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
