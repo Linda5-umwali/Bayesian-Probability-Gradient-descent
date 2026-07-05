@@ -45,3 +45,52 @@ initial_params = np.array([-1.0, 2.0, 1.0, 1.0])
 scipy_grad = compute_derivative_scipy(calculate_cost_equation, initial_params, X, Y)
 print(f"SciPy Numerical Gradient at Step 0: {scipy_grad}\n")
 print("-" * 50)
+
+# 3. Gradient Descent Update Loop
+print("Starting Gradient Descent Updates:\n")
+
+
+for i in range(iterations):
+    # Compute Predictions
+    Y_pred = np.dot(X, m) + b
+   
+    # Compute Error
+    error = Y_pred - Y
+   
+    # Compute Cost (and save to history)
+    cost = 0.5 * np.sum(error ** 2)
+    cost_history.append(cost)
+   
+    # Compute Gradients explicitly using matrix multiplication
+    grad_m = np.dot(X.T, error)
+    grad_b = error  # Since b is a vector matching the shape of Y
+   
+    # Update Parameters
+    m = m - (alpha * grad_m)
+    b = b - (alpha * grad_b)
+   
+    # Save the updated parameters to our history logs for plotting
+    m1_history.append(m[0,0])
+    m2_history.append(m[1,0])
+    b1_history.append(b[0,0])
+    b2_history.append(b[1,0])
+   
+    # Print intermediate results so calculation steps remain visible
+    print(f"--- After Update {i + 1} ---")
+    print(f"Cost: {cost:.4f}")
+    print(f"Updated m:\n{m}")
+    print(f"Updated b:\n{b}\n")
+
+
+# Calculate the final cost
+final_pred = np.dot(X, m) + b
+final_error = final_pred - Y
+final_cost = 0.5 * np.sum(final_error ** 2)
+cost_history.append(final_cost)
+
+
+# 4. Final Predictions
+print("-" * 50)
+print("FINAL PREDICTIONS (Using updated m and b):")
+print(f"Predicted Y:\n{final_pred}")
+print(f"Actual Y:\n{Y}")
