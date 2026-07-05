@@ -29,7 +29,7 @@ We modeled a Parent and Child Heights dataset selection using an expectation-max
 | 2 | [value] | [value] | [value] | [value] | [value] | [value] | [value] |
 
 ### Why not just split at the global mean?
-...
+... We should not simply split the global mean because this creates a scenario where we might missclassify a child as a father if their height overlaps to the father's side. We also know that certain children can be unusually tall so a hard split always gives absolute 100% certainity even though the real world is more mixed as the data shows. The EM algorithm instead provide soft assignments with probabilities for either child or farther which is more realistic and reflected in the dataset.
 
 ## Part 2: Bayesian Probability on IMDb Reviews
 ### Chosen keywords
