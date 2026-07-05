@@ -33,8 +33,8 @@ We modeled a Parent and Child Heights dataset selection using an expectation-max
 
 ## Part 2: Bayesian Probability on IMDb Reviews
 ### Chosen keywords
-- Positive: [keyword1], [keyword2], ...
-- Negative: [Keyword1], [keyword2], [keyword3]
+- Positive: [excellent], [amazing], [great]
+- Negative: [terrible], [bad], [boring]
 - 
 - we choose to compute: P(Positive | keyword)
 
@@ -60,8 +60,6 @@ See: `part3_manual_calculations/part3_manual_calculations.pdf`
 ## Part 4: Gradient Descent(Code Implementation)
 We converted the manual code from part 3 intto working python code, using SciPy to compute derivatives automatedly rather than by hand/ manual computation.
 
-### Components
-... list of files.py and what they perform
 
 ## Repository structure
 ```
@@ -81,3 +79,9 @@ project-root/
 └── notebook/
     └── full_walkthrough.ipynb
 ```
+
+## Running Part4
+
+1. Clone the repo ``` git clone https://github.com/Linda5-umwali/Bayesian-Probability-Gradient-descent.git ```
+2. Run ``` pip install -r requirements.txt ```
+3. Run ``` python gradient_descent.py ```
