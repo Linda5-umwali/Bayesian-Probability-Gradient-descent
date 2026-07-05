@@ -46,4 +46,15 @@ for keyword in keywords:
         p_keyword_given_positive = keyword_in_positive_count / positive_reviews
     else:
         p_keyword_given_positive = 0
+# Posterior: P(Positive | Keyword) - using Bayes' formula!
+    # Formula: P(A|B) = (P(B|A) * P(A)) / P(B)
+    if p_keyword > 0:
+        posterior = (p_keyword_given_positive * p_positive) / p_keyword
+    else:
+        posterior = 0
 
+    # Print the results
+    print(f"--- Keyword: '{keyword}' ---")
+    print(f"Likelihood P({keyword}|Positive): {p_keyword_given_positive * 100:.2f}%")
+    print(f"Marginal P({keyword}): {p_keyword * 100:.2f}%")
+    print(f"Posterior P(Positive|{keyword}): {posterior * 100:.2f}%\n")
