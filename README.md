@@ -9,33 +9,25 @@ Innocent Tito Muvunyi
 Linda Umwali
 ```
 ## Table of content
-- [Part1: Probability Distributions EM Algorithm](## Part 1: Probability Distributions (EM Algorithm))
-- [part2: Bayesian Probability on IMDb Reviews](## Part 2: Bayesian Probability on IMDb Reviews)
-- [Part 3: Gradient Descent Manual Calculation](## Part 3: Gradient Descent( Manual calculations))
-- [Part 4: Gradient Descent implementation in Code](## Part 4: Gradient Descent(Code Implementation))
-- [Repository structure](## Repository structure)
+- Part1: Probability Distributions EM Algorithm
+- part2: Bayesian Probability on IMDb Reviews
+- Part 3: Gradient Descent Manual Calculation
+- Part 4: Gradient Descent implementation in Code
+- Repository structure
 
 ## Part 1: Probability Distributions (EM Algorithm)
 We modeled a Parent and Child Heights dataset selection using an expectation-maximization (EM) technique that models the data set as a combination of two Gaussians and applied the algorithm in Python.
 
-### Dataset link: [Link to database](https://www.kaggle.com/datasets/jacopoferretti/parents-heights-vs-children-heights-galton-data)
-
-### EM Optimization Tracking Table
-
-| Iteration | μ₁ (Children) | μ₂ (Pros) | σ₁² | σ₂² | π₁ | π₂ | Log-Likelihood |
-|---|---|---|---|---|---|---|---|
-| 0 (Init) | [value] | [value] | [value] | [value] | [value] | [value] | [value] |
-| 1 | [value] | [value] | [value] | [value] | [value] | [value] | [value] |
-| 2 | [value] | [value] | [value] | [value] | [value] | [value] | [value] |
+- Dataset link: [Link to database](https://www.kaggle.com/datasets/jacopoferretti/parents-heights-vs-children-heights-galton-data)
 
 ### Why not just split at the global mean?
 ...
 
 ## Part 2: Bayesian Probability on IMDb Reviews
+- Database link: [linkto Database](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)
 ### Chosen keywords
 - Positive: [excellent], [amazing], [great]
 - Negative: [terrible], [bad], [boring]
-- 
 - we choose to compute: P(Positive | keyword)
 
 ### Result table
@@ -44,7 +36,7 @@ We modeled a Parent and Child Heights dataset selection using an expectation-max
 ### implementation
 - Implemented in plain Python (no ML libraries) using Bayes' Theorem:
   `P(Positive|keyword) = [P(keyword|Positive) * P(Positive)] / P(keyword)`
-- Code entry point: `part2_bayes/filename.py`
+- Code entry point: `part2_bayesian_probability/bayesian_probability.py`
 
 ## Part 3: Gradient Descent( Manual calculations)
 
@@ -54,11 +46,13 @@ We modeled a Parent and Child Heights dataset selection using an expectation-max
 3. computed four gradient descent updates
 
 ### written discussion of the observed trend in m and b
-...
-See: `part3_manual_calculations/part3_manual_calculations.pdf`
+Through all iterations, the cost function went down very rapidly from 61.0 to 2.16, however, the decreasing speed became slower at each stage(from 6.5 to 2.5 to 2.16). This demonstrates that gradient descent worked correctly(large, fast improvement early on when far from the minimum, followed by smaller refinements as the model gets closer to the optimal parameters). The bias b increased steadily and smoothly during all the iterations, which means it tended to reach its optimal value straightly. The behaviour of m1 and m2 was different. While m1 converged almost immediately, m2 first reached a larger than optimal value at iteration 1, then oscillated and started converging slowly after this point. This indicates that the learning rate is adequate for these parameters but is not tuned well enough.
+The values are still showing convergence and not divergence trends as the error keeps reducing each time.
+
+See: [manual calculations pdf](https://github.com/Linda5-umwali/Bayesian-Probability-Gradient-descent/blob/main/part3_grad_descent_manual_calculation/Part3%20G33.pdf)
 
 ## Part 4: Gradient Descent(Code Implementation)
-We converted the manual code from part 3 intto working python code, using SciPy to compute derivatives automatedly rather than by hand/ manual computation.
+We converted the manual code from part 3 into working python code, using SciPy to compute derivatives automatedly rather than by hand/ manual computation.
 
 
 ## Repository structure
