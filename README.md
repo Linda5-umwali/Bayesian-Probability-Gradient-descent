@@ -67,19 +67,17 @@ We converted the manual code from part 3 intto working python code, using SciPy 
 ```
 project-root/
 ├── README.md
-├── part1_em/
+├── part1_probability_distributions/
 │   ├── em_algorithm.py
-│   └── classify.py
-├── part2_bayes/
-│   └── bayes_sentiment.py
+│   └── GaltonFamilies.csv
+├── part2_bayesian_probability/
+│   └── bayes_probability.py
 ├── part3_manual_calculations/
 │   └── part3_manual_calculations.pdf
-├── part4_gradient_descent/
-│   ├── derivative_utils.py
+├── part4_grad_descent_code/
 │   ├── gradient_descent.py
-│   └── plot_results.py
-├── data/
-│   └── [dataset files or links]
+│   └── cost_plot.png
+    └── parameters_plot.png
 └── notebook/
     └── full_walkthrough.ipynb
 ```
